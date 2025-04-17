@@ -2,6 +2,7 @@ import { Module } from '@nestjs/common';
 
 import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { CatsModule } from './cats/cats.module';
 
 
 
@@ -14,20 +15,21 @@ import { TypeOrmModule } from '@nestjs/typeorm';
       isGlobal:true
 
     }),
+    CatsModule,
 
     TypeOrmModule.forRoot({
-      type: 'postgres',
+      type: 'mysql',
       host: 'localhost',
-      port: 5432,
-      username: 'santiago',
-      password: 'santiago',
-      database: 'ejemplo',
+      port: 3307,
+      username: 'user_crud',
+      password: 'root',
+      database: 'db_crud',
       autoLoadEntities: true,
       synchronize: true,
-      retryDelay:3000,
-      retryAttempts:10
     }),
 
   ],
 })
+
+
 export class AppModule {}

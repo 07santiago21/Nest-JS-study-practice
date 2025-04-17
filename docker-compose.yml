@@ -1,15 +1,14 @@
 services:
-  db:
-    image: postgres
+  mysql:
+    image: mysql:8.0
+    container_name: mysql_db
     restart: always
     environment:
-      - POSTGRES_DB=ejemplo
-      - POSTGRES_USER=santiago
-      - POSTGRES_PASSWORD=santiago
-    
-    ports:
-      - '5432:5432'
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: db_crud
+      MYSQL_USER: user_crud
+      MYSQL_PASSWORD: root
     volumes:
-      - ./postgres_data:/var/lib/postgresql 
-
-
+      - ./mysql:/var/lib/mysql
+    ports:
+      - "3307:3306"

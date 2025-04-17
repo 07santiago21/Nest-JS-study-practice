@@ -5,6 +5,7 @@ import { UpdateCatDto } from './dto/update-cat.dto';
 
 @Controller('cats')
 export class CatsController {
+
   constructor(private readonly catsService: CatsService) {}
 
   @Post()
@@ -18,8 +19,8 @@ export class CatsController {
   }
 
   @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.catsService.findOne(+id);
+  findOne(@Param('id') id: number) {
+    return this.catsService.findOne(id);
   }
 
   @Patch(':id')
