@@ -7,11 +7,10 @@ export class CreateCatDto {
     
 
     @IsInt()
-    @IsPositive()
+    @IsPositive()  
     age:number;
     
     @IsString()
-    @IsOptional()
-    bread?:string;
+    breed:string;
 
 }
