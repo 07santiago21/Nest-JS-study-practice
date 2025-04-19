@@ -15,7 +15,7 @@ async function bootstrap() {
 
 
 
-  app.useGlobalPipes(//de forma global hacer validaciones de entrada
+  app.useGlobalPipes(//de forma global hacer validaciones de entrada para los dto
     new ValidationPipe({
       whitelist: true,  //sirve para tirar error en el caso de que no entre lo que esperabamos
       forbidNonWhitelisted: true,
@@ -27,7 +27,6 @@ async function bootstrap() {
   await app.listen(process.env.PORT ?? 3000);
   
 
-  console.log(`application running on: ${await app.getUrl()}`)
 
 }
 bootstrap();
